@@ -35,7 +35,8 @@ const questions = [
   {
     type: "list",
     name: "license",
-    message: ["MIT", "GPL", "Apache", "BSL", "None"],
+    message: "Select a license.",
+    choices: ["MIT", "GPL", "Apache", "BSL", "None"],
   },
   {
     type: "input",
@@ -55,7 +56,7 @@ const createFile = (file, content) => {
   );
 };
 
-const returnMarkdown = (content) => {
+function returnMarkdown(content) {
   return `
 # ${content.title}
 ## Description
@@ -80,4 +81,12 @@ ${content.license}
 ## Questions
 If you have any questions, reach out to me at ${content.email}, or visit my GitHub page at https://www.github.com/${content.github}.
 `;
+}
+
+const createReadMe = () => {
+  inquirer.prompt(questions).then((content) => {
+    createFile("README.md", returnMarkdown(content));
+  });
 };
+
+createReadMe();
