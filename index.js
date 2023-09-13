@@ -49,8 +49,35 @@ const questions = [
   },
 ];
 
-createFile = (file, content) => {
+const createFile = (file, content) => {
   fs.writeFile(file, content, (err) =>
     err ? console.log(err) : console.log("File created!")
   );
+};
+
+const returnMarkdown = (content) => {
+  return `
+# ${content.title}
+## Description
+${content.description}
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contribution](#contribution)
+* [Test](#test)
+* [License](#license)
+* [Questions](#questions)
+## Installation
+${content.installation}
+## Usage
+${content.usage}
+## Contribution
+${content.contribution}
+## Test
+${content.test}
+## License
+${content.license}
+## Questions
+If you have any questions, reach out to me at ${content.email}, or visit my GitHub page at https://www.github.com/${content.github}.
+`;
 };
