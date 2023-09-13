@@ -48,3 +48,9 @@ const questions = [
     message: "Enter email address.",
   },
 ];
+
+createFile = (file, content) => {
+  fs.writeFile(file, content, (err) =>
+    err ? console.log(err) : console.log("File created!")
+  );
+};
