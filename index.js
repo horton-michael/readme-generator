@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const questions = require("./utils/questions.js");
-const { createFile, getLicense } = require("./utils/utils.js");
+const { createFile } = require("./utils/utils.js");
 const returnMarkdown = require("./utils/returnMarkdown.js");
 
 const createReadMe = () => {
