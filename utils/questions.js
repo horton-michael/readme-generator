@@ -20,14 +20,28 @@ module.exports = [
     message: "Enter usage information.",
   },
   {
+    type: "confirm",
+    name: "confirmContribution",
+    message: "Do you want to include Contribution guidelines?",
+    default: true,
+  },
+  {
     type: "input",
     name: "contribution",
     message: "Enter contribution guidelines, if available.",
+    when: ({ confirmContribution }) => confirmContribution,
+  },
+  {
+    type: "confirm",
+    name: "confirmTest",
+    message: "Do you want to include test instructions?",
+    default: true,
   },
   {
     type: "input",
     name: "test",
-    message: "Enter test instructions, if available.",
+    message: "Enter test instructions.",
+    when: ({ confirmTest }) => confirmTest,
   },
   {
     type: "list",
