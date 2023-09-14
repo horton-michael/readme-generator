@@ -1,3 +1,5 @@
+const { getLicense } = require("./utils");
+
 function returnMarkdown(content) {
   return `
   # ${content.title}
