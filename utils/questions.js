@@ -21,6 +21,18 @@ module.exports = [
   },
   {
     type: "confirm",
+    name: "confirmCredits",
+    message: "Do you want to include credits?",
+    default: true,
+  },
+  {
+    type: "input",
+    name: "credits",
+    message: "Enter credits.",
+    when: ({ confirmCredits }) => confirmCredits,
+  },
+  {
+    type: "confirm",
     name: "confirmContribution",
     message: "Do you want to include Contribution guidelines?",
     default: true,
@@ -42,6 +54,18 @@ module.exports = [
     name: "test",
     message: "Enter test instructions.",
     when: ({ confirmTest }) => confirmTest,
+  },
+  {
+    type: "confirm",
+    name: "confirmFeatures",
+    message: "Do you want to include features?",
+    default: true,
+  },
+  {
+    type: "input",
+    name: "features",
+    message: "Enter features.",
+    when: ({ confirmFeatures }) => confirmFeatures,
   },
   {
     type: "list",
