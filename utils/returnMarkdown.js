@@ -33,7 +33,7 @@ function returnMarkdown(content) {
 
     if (content.confirmTest) {
       markdown += `
-  * [Tests](#test)`;
+  * [Tests](#tests)`;
     }
 
     markdown += `
@@ -64,7 +64,7 @@ ${content.features}`;
 
   if (content.confirmContribution) {
     markdown += `
-## How to Contribute
+## Contribution
 ${content.contribution}`;
   }
 
