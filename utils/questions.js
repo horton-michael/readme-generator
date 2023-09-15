@@ -17,12 +17,6 @@ module.exports = [
   },
   {
     type: "input",
-    name: "toc",
-    message: "Enter table of contents.",
-    when: ({ confirmTOC }) => confirmTOC,
-  },
-  {
-    type: "input",
     name: "installation",
     message: "Enter installation instructions.",
   },
