@@ -1,33 +1,84 @@
 const { getLicense } = require("./utils");
 
 function returnMarkdown(content) {
-  return `
+  let markdown = `
   # ${content.title}
   ![License Badge](${getLicense(content.license)})
   ## Description
-  ${content.description}
+  ${content.description}`;
+
+  if (content.confirmTOC) {
+    markdown += `
   ## Table of Contents
   * [Installation](#installation)
-  * [Usage](#usage)
-  * [Contribution](#contribution)
-  * [Test](#test)
-  * [License](#license)
-  * [Questions](#questions)
-  ## Installation
-  ${content.installation}
-  ## Usage
-  ${content.usage}
-  ## Contribution
-  ${content.contribution}
-  ## Test
-  ${content.test}
-  ## License
-  ${content.license}
-  ## Questions
-  If you have any questions, reach out to me at ${
-    content.email
-  }, or visit my GitHub page at https://www.github.com/${content.github}.
-  `;
+  * [Usage](#usage)`;
+
+    if (content.confirmCredits) {
+      markdown += `
+  * [Credits](#credits)`;
+    }
+
+    markdown += `
+  * [License](#license)`;
+
+    if (content.confirmFeatures) {
+      markdown += `
+  * [Features](#features)`;
+    }
+
+    if (content.confirmContribution) {
+      markdown += `
+  * [How to Contribute](#contribution)`;
+    }
+
+    if (content.confirmTest) {
+      markdown += `
+  * [Tests](#test)`;
+    }
+
+    markdown += `
+  * [Questions](#questions)`;
+  }
+
+  markdown += `
+## Installation
+${content.installation}
+## Usage
+${content.usage}`;
+
+  if (content.confirmCredits) {
+    markdown += `
+## Credits
+${content.credits}`;
+  }
+
+  markdown += `
+## License
+${content.license}`;
+
+  if (content.confirmFeatures) {
+    markdown += `
+## Features
+${content.features}`;
+  }
+
+  if (content.confirmContribution) {
+    markdown += `
+## How to Contribute
+${content.contribution}`;
+  }
+
+  if (content.confirmTest) {
+    markdown += `
+## Tests
+${content.test}`;
+  }
+
+  markdown += `
+## Questions
+If you have any questions, reach out to me at ${content.email}, or visit my GitHub page at https://www.github.com/${content.github}.`;
+
+  return markdown;
 }
 
 module.exports = returnMarkdown;
